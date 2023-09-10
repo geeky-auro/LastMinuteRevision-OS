@@ -167,6 +167,51 @@ Note: The CPU time quantum is the time period defined in the system.
 #### 6. Multilevel Queue Scheduling
 Multilevel queue scheduling is a type of CPU scheduling in which the processes in the ready state are divided into different groups, each group having its own scheduling needs. The ready queue is divided into different queues according to different properties of the process like memory size, process priority, or process type. All the different processes can be implemented in different ways, i.e., each process queue can have a different scheduling algorithm.
 
+---
+### Process Synchronization
+Process Synchronization is the coordination of execution of multiple processes in a multi-process system to ensure that they access shared resources in a controlled and predictable manner. It aims to resolve the problem of race conditions and other synchronization issues in a concurrent system.
+
+The main objective of process synchronization is to ensure that multiple processes access shared resources without interfering with each other, and to prevent the possibility of inconsistent data due to concurrent access. To achieve this, various synchronization techniques such as semaphores, monitors, and critical sections are used.
+
+In a multi-process system, synchronization is necessary to ensure data consistency and integrity, and to avoid the risk of deadlocks and other synchronization problems. Process synchronization is an important aspect of modern operating systems, and it plays a crucial role in ensuring the correct and efficient functioning of multi-process systems.
+
+On the basis of synchronization, processes are categorized as one of the following two types:
+
+**Independent Process**: The execution of one process does not affect the execution of other processes.
+**Cooperative Process**: A process that can affect or be affected by other processes executing in the system.
+Process synchronization problem arises in the case of Cooperative process also because resources are shared in Cooperative processes.   
+
+**Race Condition:**
+ When more than one process is executing the same code or accessing the same memory or any shared variable in that condition there is a possibility that the output or the value of the shared variable is wrong so for that all the processes doing the race to say that my output is correct this condition known as a race condition. Several processes access and process the manipulations over the same data concurrently, then the outcome depends on the particular order in which the access takes place. A race condition is a situation that may occur inside a critical section. This happens when the result of multiple thread execution in the critical section differs according to the order in which the threads execute. Race conditions in critical sections can be avoided if the critical section is treated as an atomic instruction. Also, proper thread synchronization using locks or atomic variables can prevent race conditions.   
+
+**Critical Section Problem:**
+A critical section is a code segment that can be accessed by only one process at a time. The critical section contains shared variables that need to be synchronized to maintain the consistency of data variables. So the critical section problem means designing a way for cooperative processes to access shared resources without creating data inconsistencies. 
+br
+
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/gq/2015/06/critical-section-problem.png"/>
+<br>
+
+In the entry section, the process requests for entry in the Critical Section.
+
+## ⚠️ Any solution to the critical section problem must satisfy three requirements:
+
+* **Mutual Exclusion**: If a process is executing in its critical section, then no other process is allowed to execute in the critical section.
+* **Progress**: If no process is executing in the critical section and other processes are waiting outside the critical section, then only those processes that are not executing in their remainder section can participate in deciding which will enter in the critical section next, and the selection can not be postponed indefinitely.
+* **Bounded Waiting**: A bound must exist on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted.
+
+**Advantages of Process Synchronization**:
+⚡ Ensures data consistency and integrity <br>
+⚡ Avoids race conditions <br>
+⚡ Prevents inconsistent data due to concurrent access <br>
+⚡ Supports efficient and effective use of shared resources <br>
+<br>
+
+**Disadvantages of Process Synchronization**:
+<br>
+☠️ Adds overhead to the system <br>
+☠️ Can lead to performance degradation <br>
+☠️ Increases the complexity of the system <br>
+☠️ Can cause deadlocks if not implemented properly. <br>
 
 ---
 
